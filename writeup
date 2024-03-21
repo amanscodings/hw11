@@ -1,0 +1,2 @@
+My appraoch to this code was to have 2 classes. One was solution and one was to fill in color. 
+it checks if its true, it means no change is needed. Then I created 4 different recurssions that fill in colors according to number and it gave solution.

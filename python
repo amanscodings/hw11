@@ -1,0 +1,31 @@
+class Solution:
+   def floodFill(self, image, sr, sc, newColor):
+       if image[sr][sc] == newColor:
+           return image 
+       self.fill(image, sr, sc, image[sr][sc], newColor)
+       return image
+
+ 
+   def fill(self, image, i, j, originalColor, newColor):
+       if i < 0 or i >= len(image) or j < 0 or j >= len(image[0]) or image[i][j] != originalColor:
+           return
+
+       image[i][j] = newColor
+
+       self.fill(image, i + 1, j, originalColor, newColor)
+       self.fill(image, i - 1, j, originalColor, newColor)
+       self.fill(image, i, j + 1, originalColor, newColor)
+       self.fill(image, i, j - 1, originalColor, newColor)
+     
+solution = Solution()
+sr, sc, color = 1, 1, 2
+image = [[0,1,1],
+        [1,1,0],
+        [1,0,1]]
+
+print(solution.floodFill(image, sr, sc, color))
+sr, sc, color = 0, 0, 0
+image = [[0,0,0],
+        [0,0,0]]
+
+print(solution.floodFill(image, sr, sc, color))
